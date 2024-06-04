@@ -22,9 +22,12 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	testImplementation("io.rest-assured:kotlin-extensions:5.3.0")
 }
 
 tasks.withType<KotlinCompile> {
