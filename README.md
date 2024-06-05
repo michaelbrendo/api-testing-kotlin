@@ -1,5 +1,7 @@
+
+### Run:
 ```sh
-Run ./gradlew test
+./gradlew test
 ```
 
 
