@@ -28,6 +28,9 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	testImplementation("io.rest-assured:kotlin-extensions:5.3.0")
+	testImplementation("junit:junit:4.13.2")
+	testImplementation("io.rest-assured:json-schema-validator:5.3.0")
+
 }
 
 tasks.withType<KotlinCompile> {
