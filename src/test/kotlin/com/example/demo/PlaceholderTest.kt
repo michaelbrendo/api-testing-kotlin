@@ -34,4 +34,17 @@ class PlaceholderTest {
         println(response.headers.asList())
         println("Response body: " + response.body.asString())
     }
+
+    @Test
+    fun`Get comment by post id`(){
+        val response = RestAssured.get("https://jsonplaceholder.typicode.com/posts/1/comments")
+
+        response
+            .then()
+            .statusCode(200)
+            .body(matchesJsonSchemaInClasspath(PlaceHolderSchemas.GET_COMMENTS.schema))
+
+        println(response.headers.asList())
+        println("Response body: " + response.body.asString())
+    }
 }
