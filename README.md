@@ -1,4 +1,7 @@
 # 🧪 API Testing with Kotlin
+[![Build](https://github.com/michaelbrendo/api-testing-kotlin/actions/workflows/gradle.yml/badge.svg)](https://github.com/michaelbrendo/api-testing-kotlin/actions)  
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://github.com/michaelbrendo/api-testing-kotlin/actions)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
 
 Automated API testing project using Kotlin, Spring Boot, Rest-Assured, and JUnit.
 
@@ -26,3 +29,7 @@ This project interacts with public REST APIs for testing purposes:
 - Rest-Assured with Kotlin Extensions
 - Logback + SLF4J for logging
 - Tomcat (provided runtime)
+
+## License
+This project is licensed under the MIT License — see the LICENSE
+ file for details.
