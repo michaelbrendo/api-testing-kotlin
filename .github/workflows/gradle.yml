@@ -35,3 +35,14 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
+
+      - name: Run tests
+        run: ./gradlew clean test
+
+      - name: Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/reports/allure-report
+          publish_branch: gh-pages
+
