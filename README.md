@@ -1,6 +1,6 @@
 # 🧪 API Testing with Kotlin
-[![Build](https://github.com/michaelbrendo/api-testing-kotlin/actions/workflows/gradle.yml/badge.svg)](https://github.com/michaelbrendo/api-testing-kotlin/actions)  
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://github.com/michaelbrendo/api-testing-kotlin/actions)  
+[![Build](https://github.com/michaelbrendo/api-testing-kotlin/actions/workflows/gradle.yml/badge.svg)](https://github.com/michaelbrendo/api-testing-kotlin/actions)
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://github.com/michaelbrendo/api-testing-kotlin/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
 
 Automated API testing project using Kotlin, Spring Boot, Rest-Assured, and JUnit.
@@ -17,6 +17,16 @@ Automated API testing project using Kotlin, Spring Boot, Rest-Assured, and JUnit
 - [Gradle](https://gradle.org/install/) — Build automation tool
 - [WSL2 with Ubuntu](https://learn.microsoft.com/en-us/windows/wsl/install) — Windows Subsystem for Linux (for Windows users)
 
+## Setup VS Code / IntelliJ
+To open the project in VS Code with WSL and ensure imports work:
+
+- Configure the Workspace JDK to JavaSE-17.
+- Install the following VS Code extensions (Remote WSL):
+  - Extension Pack for Java (Microsoft)
+  - Kotlin (the extension that works best for your setup)
+- Run Gradle: Refresh Gradle Project to load dependencies.
+> ⚠️ Note: Navigation, refactoring, and full Kotlin support work better in IntelliJ IDEA.
+
 ## APIs Used
 This project interacts with public REST APIs for testing purposes:
 - JSONPlaceholder REST API — provides mock data like posts, comments, users, etc.
@@ -31,5 +41,4 @@ This project interacts with public REST APIs for testing purposes:
 - Tomcat (provided runtime)
 
 ## License
-This project is licensed under the MIT License — see the LICENSE
- file for details.
+This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.
