@@ -39,6 +39,9 @@ jobs:
       - name: Run tests
         run: ./gradlew clean test
 
+      - name: Generating Allure report
+        run: ./gradlew allureReport
+
       - name: Deploy Allure Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
