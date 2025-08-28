@@ -46,3 +46,4 @@ jobs:
           publish_dir: ./build/reports/allure-report
           publish_branch: gh-pages
 
+
