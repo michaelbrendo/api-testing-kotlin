@@ -1,7 +1,9 @@
 # 🧪 API Testing with Kotlin
 [![Build](https://github.com/michaelbrendo/api-testing-kotlin/actions/workflows/gradle.yml/badge.svg)](https://github.com/michaelbrendo/api-testing-kotlin/actions)
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](https://github.com/michaelbrendo/api-testing-kotlin/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
+[![Allure Report](https://img.shields.io/badge/Allure-Report-blue?logo=allure)](https://michaelbrendo.github.io/api-testing-kotlin/index.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 
 Automated API testing project using Kotlin, Spring Boot, Rest-Assured, and JUnit.
 
