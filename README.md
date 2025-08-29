@@ -13,6 +13,24 @@ Automated API testing project using Kotlin, Spring Boot, Rest-Assured, and JUnit
 ```bash
 ./gradlew test
 ```
+Or use the provided Makefile for automation:
+
+```bash
+# Run tests
+make test
+```
+```bash
+# Install Allure CLI locally if not installed
+make install-allure
+```
+```bash
+# Generate Allure report only
+make allure-report
+```
+```bash
+# Serve Allure report locally
+make allure-serve
+```
 
 ## Requirements
 - [Java 17](https://adoptium.net/en-GB/temurin/releases/?version=17) — OpenJDK distribution from Adoptium
@@ -34,6 +52,12 @@ This project interacts with public REST APIs for testing purposes:
 - JSONPlaceholder REST API — provides mock data like posts, comments, users, etc.
 - JSONPlaceholder.org — visual interface for testing endpoints (requires cookies enabled)
 
+## 🛠 Makefile & Allure Report
+- The Makefile automates test execution and report generation.
+- Allure reports are generated in build/reports/allure-report.
+- Serve the report locally with make serve-allure.
+- Reports are automatically deployed to GitHub Pages via GitHub Actions.
+
 ## Technologies & Dependencies
 - Kotlin 1.9.24
 - Spring Boot 3.3.0
@@ -41,6 +65,7 @@ This project interacts with public REST APIs for testing purposes:
 - Rest-Assured with Kotlin Extensions
 - Logback + SLF4J for logging
 - Tomcat (provided runtime)
+- Allure (test reporting)
 
 ## License
 This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.
