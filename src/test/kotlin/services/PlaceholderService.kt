@@ -1,14 +1,26 @@
 package services
 
 import io.restassured.RestAssured
-import io.restassured.module.jsv.JsonSchemaValidator
 import io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath
-import io.restassured.module.jsv.JsonSchemaValidator.reset
 import io.restassured.response.ResponseBody
 import util.Data
-import util.enums.schemas.PlaceHolderSchemas
 
 class PlaceholderService {
+
+    fun createPost(payload: String, schema: String): ResponseBody<*>? {
+
+        return RestAssured
+            .given()
+            .baseUri(Data.baseUrl)
+            .contentType("application/json")
+            .body(payload)
+            .`when`()
+            .post("/posts")
+            .then()
+            .statusCode(201)
+            .body(matchesJsonSchemaInClasspath(schema))
+            .extract().response()
+    }
 
     fun getPostsById(schema: String): ResponseBody<*>?{
 

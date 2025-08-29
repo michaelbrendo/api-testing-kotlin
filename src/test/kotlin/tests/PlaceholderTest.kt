@@ -22,6 +22,21 @@ class PlaceholderTest {
     }
 
     @Test
+    fun `Should create post`(){
+         val payload = """
+                {
+                    "title": "foo",
+                    "body": "bar",
+                    "userId": 1
+                }
+            """.trimIndent()
+
+        val response = PlaceholderService().createPost(payload, PlaceHolderSchemas.POST_CREATE_POST.schema) as RestAssuredResponseImpl
+
+        logResponse(response)
+    }
+
+    @Test
     fun `Get posts by id`() {
         val response = PlaceholderService().getPostsById(PlaceHolderSchemas.GET_POSTS.schema) as RestAssuredResponseImpl
 
