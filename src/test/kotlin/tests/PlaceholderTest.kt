@@ -1,10 +1,12 @@
 package tests
 
 import io.restassured.internal.RestAssuredResponseImpl
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.boot.test.context.SpringBootTest
+import payloads.PostPayload
 import services.PlaceholderService
 import util.enums.schemas.PlaceHolderSchemas
 
@@ -23,15 +25,14 @@ class PlaceholderTest {
 
     @Test
     fun `Should create post`(){
-         val payload = """
-                {
-                    "title": "foo",
-                    "body": "bar",
-                    "userId": 1
-                }
-            """.trimIndent()
-
+        val payload = PostPayload("foo", "bar", 1)
         val response = PlaceholderService().createPost(payload, PlaceHolderSchemas.POST_CREATE_POST.schema) as RestAssuredResponseImpl
+
+        val postResponse: PostPayload = response.`as`(PostPayload::class.java)
+
+        assertEquals(payload.title, postResponse.title)
+        assertEquals(payload.body, postResponse.body)
+        assertEquals(payload.userId, postResponse.userId)
 
         logResponse(response)
     }

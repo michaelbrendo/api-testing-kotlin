@@ -3,11 +3,12 @@ package services
 import io.restassured.RestAssured
 import io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath
 import io.restassured.response.ResponseBody
+import payloads.PostPayload
 import util.Data
 
 class PlaceholderService {
 
-    fun createPost(payload: String, schema: String): ResponseBody<*>? {
+    fun createPost(payload: PostPayload, schema: String): ResponseBody<*>? {
 
         return RestAssured
             .given()
@@ -33,7 +34,6 @@ class PlaceholderService {
             .statusCode(200)
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
-
     }
 
     fun getAllPosts(schema: String): ResponseBody<*>?{
