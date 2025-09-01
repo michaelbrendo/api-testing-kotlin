@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 
 class Helper {
-    private val helper = Helper()
 
     fun isValidEmail(email: String): Boolean {
         val emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$".toRegex()
@@ -18,7 +17,7 @@ class Helper {
 
             val email = comment["email"] as String
             assertTrue(email.isNotBlank(), "Email should not be blank")
-            assertTrue(helper.isValidEmail(email), "Email should be valid")
+            assertTrue(isValidEmail(email), "Email should be valid")
             assertTrue((comment["body"] as String).isNotBlank(), "Body should not be blank")
         }
     }
