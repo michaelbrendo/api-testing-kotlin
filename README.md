@@ -19,16 +19,8 @@ Or use the provided Makefile for automation:
 make test
 ```
 ```bash
-# Install Allure CLI locally if not installed
-make install-allure
-```
-```bash
-# Generate Allure report only
-make allure-report
-```
-```bash
-# Serve Allure report locally
-make allure-serve
+# Full setup: install Allure, run tests, generate report and serve
+make setup
 ```
 
 ## Requirements
@@ -41,8 +33,8 @@ To open the project in VS Code with WSL and ensure imports work:
 
 - Configure the Workspace JDK to JavaSE-17.
 - Install the following VS Code extensions (Remote WSL):
-  - Extension Pack for Java (Microsoft)
-  - Kotlin (the extension that works best for your setup)
+    - Extension Pack for Java (Microsoft)
+    - Kotlin (the extension that works best for your setup)
 - Run Gradle: Refresh Gradle Project to load dependencies.
 > ⚠️ Note: Navigation, refactoring, and full Kotlin support work better in IntelliJ IDEA.
 
@@ -56,6 +48,18 @@ This project interacts with public REST APIs for testing purposes:
 - Allure reports are generated in build/reports/allure-report.
 - Serve the report locally with make serve-allure.
 - Reports are automatically deployed to GitHub Pages via GitHub Actions.
+```bash
+# Install Allure CLI locally if not installed
+make install-allure
+```
+```bash
+# Generate Allure report only
+make allure-report
+```
+```bash
+# Serve Allure report locally
+make allure-serve
+```
 
 ## Technologies & Dependencies
 - Kotlin 1.9.24
