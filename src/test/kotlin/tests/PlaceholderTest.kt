@@ -73,16 +73,11 @@ class PlaceholderTest {
     @Test
     fun `should get post comment by id`() {
         val response = PlaceholderService().getPostCommentById(1, PlaceHolderSchemas.GET_POST_COMMENTS_BY_ID.schema) as RestAssuredResponseImpl
-        val firstComment = response.jsonPath().getList<Map<String, Any>>("$")[0]
+        val firstComment = response.jsonPath().getList<Map<String, Any>>("$")
         val helper = Helper()
 
         assertEquals(OK.value(), response.statusCode)
-        assertTrue(firstComment["postId"] as Int > 0, "postId should be positive")
-        assertTrue(firstComment["id"] as Int > 0, "id should be positive")
-        assertTrue((firstComment["name"] as String).isNotBlank(), "Name should not be blank")
-        assertTrue((firstComment["email"] as String).isNotBlank(), "Email should not be blank")
-        assertTrue(helper.isValidEmail(firstComment["email"] as String), "Email should be valid")
-        assertTrue((firstComment["body"] as String).isNotBlank(), "Body should not be blank")
+        helper.validateComments(firstComment, 1)
     }
 
     @Epic("Place holder API")
@@ -93,14 +88,10 @@ class PlaceholderTest {
     @Test
     fun `Should get comment by postId`() {
         val response = PlaceholderService().getCommentByPostId(1, PlaceHolderSchemas.GET_COMMENTS_BY_POST_ID.schema) as RestAssuredResponseImpl
-        val firstComment = response.jsonPath().getList<Map<String, Any>>("$")[0]
+        val firstComment = response.jsonPath().getList<Map<String, Any>>("$")
         val helper = Helper()
 
-        assertTrue(firstComment["postId"] as Int > 0, "postId should be positive")
-        assertTrue(firstComment["id"] as Int > 0, "id should be positive")
-        assertTrue((firstComment["name"] as String).isNotBlank(), "Name should not be blank")
-        assertTrue((firstComment["email"] as String).isNotBlank(), "Email should not be blank")
-        assertTrue(helper.isValidEmail(firstComment["email"] as String), "Email should be valid")
-        assertTrue((firstComment["body"] as String).isNotBlank(), "Body should not be blank")
+        assertEquals(OK.value(), response.statusCode)
+        helper.validateComments(firstComment, 1)
     }
 }
