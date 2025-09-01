@@ -39,13 +39,13 @@ class PlaceholderService {
         return response
     }
 
-    fun getPostsById(schema: String): Response {
+    fun getPostsById(postId: Int, schema: String): Response {
 
         val response = RestAssured
             .given()
             .baseUri(Data.baseUrl)
             .`when`()
-            .get("/posts/1")
+            .get("/posts/$postId")
             .then()
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
@@ -69,13 +69,13 @@ class PlaceholderService {
         return response
     }
 
-    fun getPostCommentById(schema: String): Response {
+    fun getPostCommentById(commentId: Int, schema: String): Response {
 
         val response = RestAssured
             .given()
             .baseUri(Data.baseUrl)
             .`when`()
-            .get("posts/1/comments")
+            .get("posts/$commentId/comments")
             .then()
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
@@ -84,13 +84,13 @@ class PlaceholderService {
         return response
     }
 
-    fun getCommentByPostId(schema: String): Response {
+    fun getCommentByPostId(postId: Int, schema: String): Response {
 
         val response = RestAssured
             .given()
             .baseUri(Data.baseUrl)
             .`when`()
-            .get("comments?postId=1")
+            .get("comments?postId=$postId")
             .then()
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
