@@ -2,15 +2,29 @@ package services
 
 import io.restassured.RestAssured
 import io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath
-import io.restassured.response.ResponseBody
+import io.restassured.response.Response
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import payloads.PostPayload
+import tests.PlaceholderTest
 import util.Data
+
 
 class PlaceholderService {
 
-    fun createPost(payload: PostPayload, schema: String): ResponseBody<*>? {
+    companion object {
+        private val logger: Logger = LoggerFactory.getLogger(PlaceholderTest::class.java)
+    }
 
-        return RestAssured
+    private fun logResponse(response: Response) {
+        logger.info("Headers: ${response.headers.asList()}")
+        logger.info("Body: ${response.body.asString()}")
+        logger.info("Schema validation successful")
+    }
+
+    fun createPost(payload: PostPayload, schema: String): Response {
+
+        val response = RestAssured
             .given()
             .baseUri(Data.baseUrl)
             .contentType("application/json")
@@ -18,60 +32,70 @@ class PlaceholderService {
             .`when`()
             .post("/posts")
             .then()
-            .statusCode(201)
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
+
+        logResponse(response)
+        return response
     }
 
-    fun getPostsById(schema: String): ResponseBody<*>?{
+    fun getPostsById(schema: String): Response {
 
-        return RestAssured
+        val response = RestAssured
             .given()
             .baseUri(Data.baseUrl)
             .`when`()
             .get("/posts/1")
             .then()
-            .statusCode(200)
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
+
+        logResponse(response)
+        return response
     }
 
-    fun getAllPosts(schema: String): ResponseBody<*>?{
+    fun getAllPosts(schema: String): Response {
 
-        return  RestAssured
+        val response = RestAssured
             .given()
             .baseUri(Data.baseUrl)
             .`when`()
             .get("/posts")
             .then()
-            .statusCode(200)
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
+
+        logResponse(response)
+        return response
     }
 
-    fun getPostCommentById(schema: String): ResponseBody<*>?{
+    fun getPostCommentById(schema: String): Response {
 
-        return RestAssured
+        val response = RestAssured
             .given()
             .baseUri(Data.baseUrl)
             .`when`()
             .get("posts/1/comments")
             .then()
-            .statusCode(200)
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
+
+        logResponse(response)
+        return response
     }
 
-    fun getCommentByPostId(schema: String): ResponseBody<*>? {
+    fun getCommentByPostId(schema: String): Response {
 
-        return  RestAssured
+        val response = RestAssured
             .given()
             .baseUri(Data.baseUrl)
             .`when`()
             .get("comments?postId=1")
             .then()
-            .statusCode(200)
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
+
+        logResponse(response)
+        return response
     }
 }
