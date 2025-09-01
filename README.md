@@ -4,7 +4,6 @@
 [![Allure Report](https://img.shields.io/badge/Allure-Report-blue?logo=allure)](https://michaelbrendo.github.io/api-testing-kotlin/index.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-
 Automated API testing project using Kotlin, Spring Boot, Rest-Assured, and JUnit.
 
 ---
@@ -49,8 +48,8 @@ To open the project in VS Code with WSL and ensure imports work:
 
 ## APIs Used
 This project interacts with public REST APIs for testing purposes:
-- JSONPlaceholder REST API — provides mock data like posts, comments, users, etc.
-- JSONPlaceholder.org — visual interface for testing endpoints (requires cookies enabled)
+- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) REST API — provides mock data like posts, comments, users, etc.
+- [JSONPlaceholder.org](https://jsonplaceholder.org/) — visual interface for testing endpoints (requires cookies enabled)
 
 ## 🛠 Makefile & Allure Report
 - The Makefile automates test execution and report generation.
