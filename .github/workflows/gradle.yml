@@ -36,15 +36,15 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
 
+      - name: Copy previous history
+        run: |
+          if [ -d allure-history ]; then
+            mkdir -p build/allure-results/history
+            cp -r allure-history/* build/allure-results/history/
+          fi
+
       - name: Run tests
         run: ./gradlew clean test
-
-#      - name: Copy previous history
-#        run: |
-#          if [ -d allure-history ]; then
-#            mkdir -p build/allure-results/history
-#            cp -r allure-history/* build/allure-results/history/
-#          fi
 
       - name: Generating Allure report
         run: ./gradlew allureReport
