@@ -9,7 +9,6 @@ import payloads.PostPayload
 import tests.PlaceholderTest
 import util.Data
 
-
 class PlaceholderService {
 
     companion object {

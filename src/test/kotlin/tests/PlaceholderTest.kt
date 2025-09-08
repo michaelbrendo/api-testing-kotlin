@@ -1,10 +1,6 @@
 package tests
 
-import io.qameta.allure.Epic
-import io.qameta.allure.Feature
-import io.qameta.allure.Severity
-import io.qameta.allure.SeverityLevel
-import io.qameta.allure.Story
+import io.qameta.allure.*
 import io.restassured.internal.RestAssuredResponseImpl
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -18,8 +14,7 @@ import services.PlaceholderService
 import util.Helper
 import util.enums.schemas.PlaceHolderSchemas
 
-
-@SpringBootTest
+@SpringBootTest(classes = [Any::class])
 class PlaceholderTest {
 
     @Epic("Place holder API")
