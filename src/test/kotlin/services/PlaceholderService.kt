@@ -8,8 +8,11 @@ import org.slf4j.LoggerFactory
 import payloads.PostPayload
 import tests.PlaceholderTest
 import util.Data
+import util.Helper
 
 class PlaceholderService {
+
+    private val baseUrl = Data.baseUrl
 
     companion object {
         private val logger: Logger = LoggerFactory.getLogger(PlaceholderTest::class.java)
@@ -25,7 +28,7 @@ class PlaceholderService {
 
         val response = RestAssured
             .given()
-            .baseUri(Data.baseUrl)
+            .baseUri(baseUrl)
             .contentType("application/json")
             .body(payload)
             .`when`()
@@ -34,6 +37,7 @@ class PlaceholderService {
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
+        Helper().allureLogger(baseUrl, "post", payload, response)
         logResponse(response)
         return response
     }
@@ -42,13 +46,14 @@ class PlaceholderService {
 
         val response = RestAssured
             .given()
-            .baseUri(Data.baseUrl)
+            .baseUri(baseUrl)
             .`when`()
             .get("/posts/$postId")
             .then()
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
+        Helper().allureLogger(baseUrl, "post", null, response)
         logResponse(response)
         return response
     }
@@ -57,13 +62,14 @@ class PlaceholderService {
 
         val response = RestAssured
             .given()
-            .baseUri(Data.baseUrl)
+            .baseUri(baseUrl)
             .`when`()
             .get("/posts")
             .then()
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
+        Helper().allureLogger(baseUrl, "post", null, response)
         logResponse(response)
         return response
     }
@@ -72,13 +78,14 @@ class PlaceholderService {
 
         val response = RestAssured
             .given()
-            .baseUri(Data.baseUrl)
+            .baseUri(baseUrl)
             .`when`()
             .get("posts/$commentId/comments")
             .then()
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
+        Helper().allureLogger(baseUrl, "post", null, response)
         logResponse(response)
         return response
     }
@@ -87,13 +94,14 @@ class PlaceholderService {
 
         val response = RestAssured
             .given()
-            .baseUri(Data.baseUrl)
+            .baseUri(baseUrl)
             .`when`()
             .get("comments?postId=$postId")
             .then()
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
+        Helper().allureLogger(baseUrl, "post", null, response)
         logResponse(response)
         return response
     }

@@ -1,4 +1,7 @@
 package util
+import io.qameta.allure.Allure
+import io.qameta.allure.Allure.ThrowableRunnableVoid
+import io.restassured.response.Response
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 
@@ -20,5 +23,19 @@ class Helper {
             assertTrue(isValidEmail(email), "Email should be valid")
             assertTrue((comment["body"] as String).isNotBlank(), "Body should not be blank")
         }
+    }
+
+    fun allureLogger(url: String, method: String, requestPayload: Any?, response: Response) {
+
+        Allure.step("Request: $url/$method", ThrowableRunnableVoid {
+//            requestHeaders :TODO
+            requestPayload?.let { Allure.addAttachment("Payload", it.toString()) }
+        })
+
+        Allure.step("Response:", ThrowableRunnableVoid {
+            Allure.addAttachment("Status code:", response.statusCode.toString())
+            Allure.addAttachment("Response Headers:", response.headers.toString())
+            Allure.addAttachment("Response Body:", response.body.asString())
+        })
     }
 }
