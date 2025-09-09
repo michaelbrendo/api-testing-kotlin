@@ -36,12 +36,12 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
 
-      - name: Copy previous history
-        run: |
-          if [ -d allure-history ]; then
-            mkdir -p build/allure-results/history
-            cp -r allure-history/* build/allure-results/history/
-          fi
+#      - name: Copy previous history
+#        run: |
+#          if [ -d allure-history ]; then
+#            mkdir -p build/allure-results/history
+#            cp -r allure-history/* build/allure-results/history/
+#          fi
 
       - name: Run tests
         run: ./gradlew clean test
@@ -49,10 +49,10 @@ jobs:
       - name: Generating Allure report
         run: ./gradlew allureReport
 
-      - name: Save history for next runs
-        run: |
-          mkdir -p allure-history
-          cp -r build/reports/allure-report/allureReport/history/* allure-history/ || true
+#      - name: Save history for next runs
+#        run: |
+#          mkdir -p allure-history
+#          cp -r build/reports/allure-report/allureReport/history/* allure-history/ || true
 
       - name: Deploy Allure Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
