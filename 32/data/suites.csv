@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","135","Should get posts by id","","Wed Sep 10 16:21:21 GMT 2025","passed","Wed Sep 10 16:21:21 GMT 2025","","tests.PlaceholderTest","tests.PlaceholderTest","Should get posts by id"
+"","115","Should get comment by postId","","Wed Sep 10 16:21:21 GMT 2025","passed","Wed Sep 10 16:21:22 GMT 2025","","tests.PlaceholderTest","tests.PlaceholderTest","Should get comment by postId"
+"","248","Should get all posts","","Wed Sep 10 16:21:21 GMT 2025","passed","Wed Sep 10 16:21:21 GMT 2025","","tests.PlaceholderTest","tests.PlaceholderTest","Should get all posts"
+"","4663","Should create post","","Wed Sep 10 16:21:16 GMT 2025","passed","Wed Sep 10 16:21:21 GMT 2025","","tests.PlaceholderTest","tests.PlaceholderTest","Should create post"
+"","99","should get post comment by id","","Wed Sep 10 16:21:21 GMT 2025","passed","Wed Sep 10 16:21:21 GMT 2025","","tests.PlaceholderTest","tests.PlaceholderTest","should get post comment by id"

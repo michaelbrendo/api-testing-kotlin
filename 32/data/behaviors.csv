@@ -1,0 +1,6 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","Place holder API","0","GET /posts","1","0","Should get posts by id","0"
+"0","Place holder API","0","Comment /comments?postId","1","0","Should get comment by postId","0"
+"0","","0","","1","0","","0"
+"0","Place holder API","0","Post /posts","1","0","Should create posts","0"
+"0","Place holder API","0","Comment /comments","1","0","Should get post comment by id","0"
