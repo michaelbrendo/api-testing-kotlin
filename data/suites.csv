@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Sep 10 15:24:41 UTC 2025","Wed Sep 10 15:24:41 UTC 2025","187","","tests.PlaceholderTest","","tests.PlaceholderTest","should get post comment by id","should get post comment by id",""
+"passed","Wed Sep 10 15:24:41 UTC 2025","Wed Sep 10 15:24:42 UTC 2025","196","","tests.PlaceholderTest","","tests.PlaceholderTest","Should get comment by postId","Should get comment by postId",""
+"passed","Wed Sep 10 15:24:41 UTC 2025","Wed Sep 10 15:24:41 UTC 2025","302","","tests.PlaceholderTest","","tests.PlaceholderTest","Should get all posts","Should get all posts",""
+"passed","Wed Sep 10 15:24:37 UTC 2025","Wed Sep 10 15:24:41 UTC 2025","3670","","tests.PlaceholderTest","","tests.PlaceholderTest","Should create post","Should create post",""
+"passed","Wed Sep 10 15:24:41 UTC 2025","Wed Sep 10 15:24:41 UTC 2025","210","","tests.PlaceholderTest","","tests.PlaceholderTest","Should get posts by id","Should get posts by id",""
