@@ -65,9 +65,9 @@ tasks.withType<Test> {
 //    testLogging {
 //        events("passed", "skipped", "failed")
 //    }
-//    jvmArgs = listOf(
-//        "-javaagent:${agent.singleFile}"
-//    )
+    jvmArgs = listOf(
+        "-javaagent:${agent.singleFile}"
+    )
 }
 
 tasks.named<BootWar>("bootWar") {
