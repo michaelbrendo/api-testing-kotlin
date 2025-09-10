@@ -18,11 +18,11 @@ import util.enums.schemas.PlaceHolderSchemas
 class PlaceholderTest {
 
     @Test
+    @Tag("smoke")
     @Epic("Place holder API")
-    @Feature("Post /posts")
-    @Story("Should create posts")
+    @Feature("Post and Get features")
+    @Story("Create Post")
     @Severity(SeverityLevel.CRITICAL)
-    @Tag("sanity")
     fun `Should create post`() {
         val payload = PostPayload("foo", "bar", 1)
         val response = PlaceholderService().createPost(payload, PlaceHolderSchemas.POST_CREATE_POST.schema) as RestAssuredResponseImpl
@@ -35,12 +35,12 @@ class PlaceholderTest {
         assertEquals(101, response.jsonPath().getInt("id"))
     }
 
-    @Epic("Place holder API")
-    @Feature("GET /posts")
-    @Story("Should get posts by id")
-    @Severity(SeverityLevel.NORMAL)
-    @Tag("regression")
     @Test
+    @Tag("smoke")
+    @Epic("Place holder API")
+    @Feature("Post and Get features")
+    @Story("Create GET")
+    @Severity(SeverityLevel.CRITICAL)
     fun `Should get posts by id`() {
         val response = PlaceholderService().getPostsById(1, PlaceHolderSchemas.GET_POSTS.schema) as RestAssuredResponseImpl
         val json = response.jsonPath()
@@ -53,6 +53,11 @@ class PlaceholderTest {
     }
 
     @Test
+    @Tag("smoke")
+    @Epic("Place holder API")
+    @Feature("Post and Get features")
+    @Story("Create GET")
+    @Severity(SeverityLevel.NORMAL)
     fun `Should get all posts`() {
         val response = PlaceholderService().getAllPosts(PlaceHolderSchemas.GET_ALL_POSTS.schema) as RestAssuredResponseImpl
 
@@ -60,12 +65,12 @@ class PlaceholderTest {
         assertTrue(response.jsonPath().getList<Any>("").isNotEmpty(), "Posts list should not be empty")
     }
 
-    @Epic("Place holder API")
-    @Feature("Comment /comments")
-    @Story("Should get post comment by id")
-    @Severity(SeverityLevel.CRITICAL)
-    @Tag("sanity")
     @Test
+    @Tag("smoke")
+    @Epic("Place holder API")
+    @Feature("Post and Get features")
+    @Story("Create Comments")
+    @Severity(SeverityLevel.CRITICAL)
     fun `should get post comment by id`() {
         val response = PlaceholderService().getPostCommentById(1, PlaceHolderSchemas.GET_POST_COMMENTS_BY_ID.schema) as RestAssuredResponseImpl
         val firstComment = response.jsonPath().getList<Map<String, Any>>("$")
@@ -75,12 +80,12 @@ class PlaceholderTest {
         helper.validateComments(firstComment, 1)
     }
 
-    @Epic("Place holder API")
-    @Feature("Comment /comments?postId")
-    @Story("Should get comment by postId")
-    @Severity(SeverityLevel.CRITICAL)
-    @Tag("sanity")
     @Test
+    @Tag("smoke")
+    @Epic("Place holder API")
+    @Feature("Post and Get features")
+    @Story("Create Comments")
+    @Severity(SeverityLevel.NORMAL)
     fun `Should get comment by postId`() {
         val response = PlaceholderService().getCommentByPostId(1, PlaceHolderSchemas.GET_COMMENTS_BY_POST_ID.schema) as RestAssuredResponseImpl
         val firstComment = response.jsonPath().getList<Map<String, Any>>("$")
@@ -90,11 +95,11 @@ class PlaceholderTest {
         helper.validateComments(firstComment, 1)
     }
 
-//    @Severity(SeverityLevel.CRITICAL)
-//    @Tag("smokeTest")
-//    @Test
-//    fun `should fail`() {
-//        assertTrue(false)
-//    }
+    @Test
+    @Tag("smoke")
+    @Severity(SeverityLevel.MINOR)
+    fun `should fail`() {
+        assertTrue(false)
+    }
 
 }
