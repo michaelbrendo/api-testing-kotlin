@@ -1,11 +1,11 @@
 package tests
 
 import io.qameta.allure.*
+import io.qameta.allure.junit4.Tag
 import io.restassured.internal.RestAssuredResponseImpl
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.Test
+import org.junit.Assert.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Tag
-import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus.CREATED
 import org.springframework.http.HttpStatus.OK
@@ -17,12 +17,12 @@ import util.enums.schemas.PlaceHolderSchemas
 @SpringBootTest(classes = [Any::class])
 class PlaceholderTest {
 
+    @Test
     @Epic("Place holder API")
     @Feature("Post /posts")
     @Story("Should create posts")
     @Severity(SeverityLevel.CRITICAL)
     @Tag("sanity")
-    @Test
     fun `Should create post`() {
         val payload = PostPayload("foo", "bar", 1)
         val response = PlaceholderService().createPost(payload, PlaceHolderSchemas.POST_CREATE_POST.schema) as RestAssuredResponseImpl
@@ -89,4 +89,12 @@ class PlaceholderTest {
         assertEquals(OK.value(), response.statusCode)
         helper.validateComments(firstComment, 1)
     }
+
+//    @Severity(SeverityLevel.CRITICAL)
+//    @Tag("smokeTest")
+//    @Test
+//    fun `should fail`() {
+//        assertTrue(false)
+//    }
+
 }

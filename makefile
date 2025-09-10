@@ -4,6 +4,9 @@ ALLURE_VERSION=2.34.1
 ALLURE_DIR=/opt/allure
 ALLURE_BIN=/usr/bin/allure
 ALLURE_TGZ=/tmp/allure.tgz
+ALLURE_HISTORY_DIR=allure-history
+ALLURE_RESULTS_DIR=build/allure-results
+ALLURE_REPORT_DIR=build/reports/allure-report/allureReport
 
 .PHONY: test allure-report allure-serve install-allure setup
 
@@ -18,7 +21,15 @@ setup: install-allure test allure-report allure-serve
 # Generate Allure report
 allure-report:
 	@echo "📊 Generating Allure report..."
-	./gradlew allureReport
+	# Copy history if exists
+	if [ -d $(ALLURE_HISTORY_DIR) ]; then \
+		mkdir -p $(ALLURE_RESULTS_DIR)/history; \
+		sudo cp -r $(ALLURE_HISTORY_DIR)/* $(ALLURE_RESULTS_DIR)/history/; \
+	fi
+	./gradlew allureReport --clean
+	# Save history for next run
+	mkdir -p $(ALLURE_HISTORY_DIR)
+	sudo cp -r $(ALLURE_REPORT_DIR)/history/* $(ALLURE_HISTORY_DIR)/ || true
 
 # Serve Allure report
 allure-serve:

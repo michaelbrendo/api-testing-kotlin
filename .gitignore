@@ -38,3 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### allure ###
+allure-history/
