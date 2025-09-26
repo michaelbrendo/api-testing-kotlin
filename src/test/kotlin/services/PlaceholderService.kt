@@ -37,7 +37,7 @@ class PlaceholderService {
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
-        Helper().allureLogger(baseUrl, "post", payload, response)
+        Helper.allureLogger(baseUrl, "post", payload, response)
         logResponse(response)
         return response
     }
@@ -53,7 +53,7 @@ class PlaceholderService {
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
-        Helper().allureLogger(baseUrl, "post", null, response)
+        Helper.allureLogger(baseUrl, "post", null, response)
         logResponse(response)
         return response
     }
@@ -69,7 +69,7 @@ class PlaceholderService {
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
-        Helper().allureLogger(baseUrl, "post", null, response)
+        Helper.allureLogger(baseUrl, "post", null, response)
         logResponse(response)
         return response
     }
@@ -85,7 +85,7 @@ class PlaceholderService {
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
-        Helper().allureLogger(baseUrl, "post", null, response)
+        Helper.allureLogger(baseUrl, "post", null, response)
         logResponse(response)
         return response
     }
@@ -101,7 +101,7 @@ class PlaceholderService {
             .body(matchesJsonSchemaInClasspath(schema))
             .extract().response()
 
-        Helper().allureLogger(baseUrl, "post", null, response)
+        Helper.allureLogger(baseUrl, "post", null, response)
         logResponse(response)
         return response
     }
